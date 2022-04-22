@@ -1,0 +1,141 @@
+<!--
+<div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-between lg:justify-content-center align-items-center flex-wrap">
+    <div class="font-bold mr-8">🔥 Hot Deals!</div>
+    <div class="align-items-center hidden lg:flex">
+        <span class="line-height-3">Libero voluptatum atque exercitationem praesentium provident odit.</span>
+    </div>
+    <a class="flex align-items-center ml-2 mr-8">
+        <a class="text-white" href="#"><span class="underline font-bold">Learn More</span></a>
+    </a>
+    <a pRipple class="flex align-items-center no-underline justify-content-center border-circle text-gray-50 hover:bg-bluegray-700 cursor-pointer transition-colors transition-duration-150" style="width:2rem; height: 2rem">
+        <i class="pi pi-times"></i>
+    </a>
+</div> ds
+-->
+
+<body>
+
+    <button class="back" (click)='logOut()'>Log out</button>
+  
+    <h1>Welcome {{ username }}</h1>
+  
+    <div class="buttongrp">
+      <button class="button-84" (click)="viewLeaveRequests()">View all leave requests 📩</button>
+      <button class="button-84" (click)="manageUsers()">Manage all users📜</button>
+  
+    </div>
+  
+   
+  
+    <div>
+      <table class="blueTable" *ngIf="tbl">
+        <thead>
+          <tr>
+            <th *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of leave">
+            <td *ngFor="let column of columns">
+              {{item[column.field]}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="tbl">
+      <label for="leaveID">Leave ID: </label>
+      <input id="leaveID" class="form-control" type="text" name="leaveID" [(ngModel)]="leaveID" placeholder="1">
+      <button class="button-84" style="position: absolute; top:30%; left:50%;" (click)="approve()">
+        Approve
+      </button>
+    </div>
+  
+  
+    <div *ngIf="showUsers">
+      <table class="blueTable">
+        <thead>
+          <tr>
+            <th *ngFor="let col of columnUser">
+              {{col.header}}
+            </th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users" (click)="editUser(item)">
+            <td *ngFor="let column of columnUser">
+              {{item[column.field]}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--
+      <p-table [value]="users" datakey="username" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th *ngFor="let col of columnUser">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+          <tr>
+              <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="text" [(ngModel)]="user.username">
+                      </ng-template>
+                       <ng-template pTemplate="output">
+                          {{product.code}}
+                      </ng-template> 
+                  </p-cellEditor>
+              </td>
+            
+          </tr>
+      </ng-template>
+      </p-table>
+  -->
+      <button class="button-84" style="position: absolute; top:30%; left:50%;" (click)="approve()">
+        Edit User
+      </button>
+      <button class="button-84" style="position: absolute; top:30%; left:50%;" (click)="addUser()">
+        Add User
+      </button>
+    </div>
+  
+    <hr>
+  
+    <form autocomplete='off' class='form' style="background-color: darkgray" *ngIf="showForm">
+      <div class="control block-cube block-input" style="background-color: darkgray">
+        <label for="newusername">User Name</label>
+        <input id="newusername" type="text" class="form-control" name="newusername" placeholder="New User" [(ngModel)]="newusername">
+      </div>
+      <div class="control block-cube block-input" style="background-color: darkgray">
+        <label for="newpassword">Password</label>
+        <input id="newpassword" type="text" class="form-control" name="newpassword" placeholder="Password" [(ngModel)]="newpassword">
+      </div>
+      <div class="control block-cube block-input" style="background-color: darkgray">
+        <label for="accesslevel">Access</label>
+        <input id="accesslevel" type="number" class="form-control" name="accesslevel" placeholder="Access" [(ngModel)]="accesslevel">
+      </div>
+      <div class="control block-cube block-input" style="background-color: darkgray">
+        <label for="department">Department</label>
+        <input id="department" type="text" class="form-control" name="department" placeholder="Department" [(ngModel)]="newdepartment">
+      </div>
+      <div class="control block-cube block-input" style="background-color: darkgray">
+        <label for="leavedays">Leave Days</label>
+        <input id="leavedays" type="text" class="form-control" name="leavedays" placeholder="Leave Days" [(ngModel)]="leavedays">
+      </div>
+  
+      <button class="button-84" type="button" name="button" (click)='submit()' style="background-color: gray">
+        Submit
+      </button>
+    </form>
+  
+  </body>
+  

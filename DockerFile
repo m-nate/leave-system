@@ -1,0 +1,14 @@
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM node:16.14.2
+# working directory
+WORKDIR /leave_app
+# copy all files to the container
+COPY ./API .
+COPY ./FRONTEND .
+# Install pip requirements
+RUN cd API; npm install
+RUN cd FRONTEND; npm install
+# port number to expose
+EXPOSE 3000
+# run the command
+CMD ["", ""]

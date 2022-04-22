@@ -1,0 +1,69 @@
+<h1>Login Page</h1>
+<form autocomplete='off' class='form' style="background-color: darkgray">
+  <div class="control block-cube block-input" style="background-color: darkgray">
+    <label for="username">Username</label>
+    <input id="username" class="form-control" type="text" name="username" [(ngModel)]="username" placeholder="Username">
+  </div>
+  <div class="control block-cube block-input" style="background-color: darkgray">
+    <label for="password">Password</label>
+    <input id="password" type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password">
+  </div>
+
+  <p style="color: red" *ngIf="acc==1">Incorrect username or password</p>
+
+  <button class="btn btn-primary" type="button" name="button" (click)='loginUser()' style="background-color: gray">
+    Login
+  </button>
+</form>
+
+
+<!--
+<body>
+<form autocomplete='off' class='form'>
+    <div class='control'>
+      <h1>
+        Sign In
+      </h1>
+    </div>
+    <div class='control block-cube block-input'>
+      <input name='username' placeholder='Username' type='text' id = "id">
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+    </div>
+    <div class='control block-cube block-input'>
+      <input name='password' placeholder='Password' type='password' id="pswd">
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+    </div>
+    <button class='btn block-cube block-cube-hover' type='button'name="button" (click)='login(((document.getElementById("pswd")).value),(document.getElementById("id").value))'>
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='text'>
+        Log In
+      </div>
+    </button>
+   
+  </form>
+</body>
+--->

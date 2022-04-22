@@ -1,0 +1,35 @@
+<button class="button-84" (click)='back()'>Back</button>
+<hr>
+
+<h1>Leave Request</h1>
+
+<form autocomplete='off' class='form' style="background-color: darkgray">
+  <div class="control block-cube block-input" style="background-color: darkgray">
+    <label for="leaveType">Leave Type</label>
+    <select name="leaveType" id="leaveType" class="form-control" (change)="onUpdateLeaveType($event)">
+      <option value="Select Leave Type">Select Leave Type</option>
+      <option value="Accumulated Leave">Accumulated Leave</option>
+      <option value="Maternity Leave">Maternity Leave</option>
+      <option value="Paternatity Leave">Paternatity Leave</option>
+      <option value="Sick Leave">Sick Leave</option>
+    </select>
+  </div>
+  <!-- <div class="control block-cube block-input" style="background-color: darkgray">
+    <label for="leaveReason">Leave Reason</label>
+    <input id="leaveReason" type="text" class="form-control" name="leaveReason" placeholder="Leave Reason">
+  </div> -->
+  <div class="control block-cube block-input" style="background-color: darkgray">
+    <label for="startDate">Start Date</label>
+    <input id="startDate" type="date" class="form-control" name="startDate" value={{startDate}}
+      (input)="onUpdateStartDate($event)">
+  </div>
+  <div class="control block-cube block-input" style="background-color: darkgray">
+    <label for="endDate">End Date</label>
+    <input id="endDate" type="date" class="form-control" name="endDate" value={{endDate}}
+      (input)="onUpdateEndDate($event)">
+  </div>
+
+  <button class="button-84" type="button" name="button" (click)='submit()' style="background-color: gray">
+    Submit
+  </button>
+</form>

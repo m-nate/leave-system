@@ -1,0 +1,40 @@
+<button class="back" (click)='logOut()'>Log out</button>
+
+<body>
+  <h1>Welcome {{ username }}</h1>
+
+  <div class="buttongrp">
+    <button class="button-84" (click)="viewLeaveRequests()"> Leave Requests 📩</button>
+    <button class="button-84" (click)="getLeaveHistory()"> Department Staff List📜</button>
+  </div>
+
+  <!-- <p *ngIf="show" class="displayData"> Leave days left: {{leaveDays}} </p> -->
+
+  <div>
+    <table class="blueTable" *ngIf="tbl">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of leave">
+          <td *ngFor="let column of columns">
+            {{item[column.field]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="tbl">
+    <label for="leaveID">Leave ID: </label>
+    <input id="leaveID" class="form-control" type="text" [(ngModel)]="leaveID" name="leaveID" placeholder="1">
+    <button class="button-84" style="position: absolute; top:30%; left:50%;" (click)="approve()">
+      Approve
+    </button>
+  </div>
+</body>
